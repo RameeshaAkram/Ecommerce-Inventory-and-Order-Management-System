@@ -166,12 +166,23 @@ These scripts can be used as backend services or utilities alongside the Java ap
 
 ## 📊 Database Schema
 
-The project includes an Entity Relationship Diagram (ERD) in `erd/Ecom-invent.drawio` that illustrates:
+The project includes a comprehensive Entity Relationship Diagram (ERD) that illustrates all database relationships:
 
-- Product and Inventory relationships
-- Customer and Order associations
-- Supplier and Shipping tracking
-- Payment and Review management
+![ERD Diagram](erd/Ecom-invent.drawio.png)
+
+**Key Entities:**
+- **Product** – Core product information with inventory tracking
+- **Customer** – Customer profiles and contact details
+- **Cart** – Shopping cart for order composition
+- **Order** – Order details with status and pricing
+- **Payment** – Payment records with transaction details
+- **Shipping** – Shipment tracking and delivery information
+- **Reviews** – Customer product reviews and ratings
+- **Supplier** – Supplier information and relationships
+- **Category** – Product categorization
+- **Address** – Customer and shipping address management
+
+The ERD source file (`Ecom-invent.drawio`) can be edited in [draw.io](https://draw.io) or any DrawIO-compatible application.
 
 ## 🔐 Security Notes
 
