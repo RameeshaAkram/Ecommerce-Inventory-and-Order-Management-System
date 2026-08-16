@@ -231,17 +231,12 @@ Contributions are welcome! Please:
 
 ## 📄 License
 
-This project is provided for academic, educational, and portfolio use. See LICENSE file for details.
-
-## 👨‍💻 Author
-
-**Ramesha Akram**
+This project is provided for academic, educational, and portfolio use.
 
 GitHub: [RameeshaAkram](https://github.com/RameeshaAkram)
 
 Repository: [Ecommerce-Inventory-and-Order-Management-System](https://github.com/RameeshaAkram/Ecommerce-Inventory-and-Order-Management-System)
 
-## 🙏 Support
 
 If you encounter any issues or have questions, please:
 
