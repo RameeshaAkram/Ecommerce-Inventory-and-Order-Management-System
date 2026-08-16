@@ -1,12 +1,24 @@
+import os
 from pymongo import MongoClient, WriteConcern
 from pymongo.read_concern import ReadConcern  # Correct import path
 from pymongo.read_preferences import ReadPreference
 from pymongo.errors import PyMongoError
 from datetime import datetime, UTC
 from bson import ObjectId
-# Initialize MongoDB client
-client = MongoClient("mongodb+srv://admin:urWatulWusqa087@cluster0.u7rda.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-db = client["EcommerceInventoryManagment"]
+
+
+def get_mongo_uri():
+    uri = os.getenv("MONGO_URI")
+    return uri.strip() if uri and uri.strip() else "mongodb://localhost:27017"
+
+
+def get_database_name():
+    db_name = os.getenv("MONGO_DATABASE")
+    return db_name.strip() if db_name and db_name.strip() else "EcommerceInventoryManagment"
+
+
+client = MongoClient(get_mongo_uri())
+db = client[get_database_name()]
 
 def cancel_order(order_id):
     """

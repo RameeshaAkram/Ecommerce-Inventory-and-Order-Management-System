@@ -1,15 +1,21 @@
+import os
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from pymongo import MongoClient
 
-# Replace with your actual connection string
-uri = "mongodb+srv://admin:urWatulWusqa087@cluster0.u7rda.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-# Initialize the client
+def get_mongo_uri():
+    uri = os.getenv("MONGO_URI")
+    return uri.strip() if uri and uri.strip() else "mongodb://localhost:27017"
+
+
+def get_database_name():
+    db_name = os.getenv("MONGO_DATABASE")
+    return db_name.strip() if db_name and db_name.strip() else "EcommerceInventoryManagment"
+
+
+uri = get_mongo_uri()
 client = MongoClient(uri)
-
-# Connect to your database (replace 'your_database_name' with your actual DB name)
-db = client["EcommerceInventoryManagment"]
+db = client[get_database_name()]
 
 collection = db["Cart"]  # Using your exact collection name
 
