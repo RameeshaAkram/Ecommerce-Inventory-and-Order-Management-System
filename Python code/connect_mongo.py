@@ -1,7 +1,13 @@
+import os
 from pymongo import MongoClient
 
-# Replace with your actual connection string
-uri = "mongodb+srv://admin:urWatulWusqa087@cluster0.u7rda.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# Read MongoDB URI from environment variable (never hardcode credentials)
+uri = os.getenv("MONGODB_URI")
+if not uri:
+    raise EnvironmentError(
+        "MONGODB_URI environment variable is not set. "
+        "Please set it before running this script."
+    )
 
 # Initialize the client
 client = MongoClient(uri)

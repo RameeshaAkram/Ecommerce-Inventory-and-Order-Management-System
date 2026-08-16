@@ -1,3 +1,8 @@
-mongodb://localhost:27017
+Set your MongoDB connection string in an environment variable:
+
+MONGODB_URI=mongodb://localhost:27017
+
+Example (bash): export MONGODB_URI="mongodb://localhost:27017"
+Example (PowerShell): $env:MONGODB_URI="mongodb://localhost:27017"
 
 Use this as a local MongoDB URI example. Do not commit real database credentials to GitHub.

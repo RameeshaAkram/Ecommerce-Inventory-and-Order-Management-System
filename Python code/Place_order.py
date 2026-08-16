@@ -1,3 +1,4 @@
+import os
 from pymongo import WriteConcern, MongoClient
 from pymongo.read_concern import ReadConcern
 from pymongo.read_preferences import ReadPreference
@@ -5,7 +6,12 @@ from pymongo.errors import PyMongoError
 from datetime import datetime, UTC  # Modern timezone-aware UTC
 
 # Connection
-uri = "mongodb+srv://admin:urWatulWusqa087@cluster0.u7rda.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = os.getenv("MONGODB_URI")
+if not uri:
+    raise EnvironmentError(
+        "MONGODB_URI environment variable is not set. "
+        "Please set it before running this script."
+    )
 client = MongoClient(uri)
 db = client["EcommerceInventoryManagment"]  # Note: Typo preserved to match your DB
 

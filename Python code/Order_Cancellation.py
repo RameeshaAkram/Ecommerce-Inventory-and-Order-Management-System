@@ -1,3 +1,4 @@
+import os
 from pymongo import MongoClient, WriteConcern
 from pymongo.read_concern import ReadConcern  # Correct import path
 from pymongo.read_preferences import ReadPreference
@@ -5,7 +6,15 @@ from pymongo.errors import PyMongoError
 from datetime import datetime, UTC
 from bson import ObjectId
 # Initialize MongoDB client
-client = MongoClient("mongodb+srv://admin:urWatulWusqa087@cluster0.u7rda.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+# Read MongoDB URI from environment variable (never hardcode credentials)
+uri = os.getenv("MONGODB_URI")
+if not uri:
+    raise EnvironmentError(
+        "MONGODB_URI environment variable is not set. "
+        "Please set it before running this script."
+    )
+
+client = MongoClient(uri)
 db = client["EcommerceInventoryManagment"]
 
 def cancel_order(order_id):
