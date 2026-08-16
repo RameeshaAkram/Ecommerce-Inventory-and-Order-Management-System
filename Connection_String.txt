@@ -1,0 +1,3 @@
+mongodb://localhost:27017
+
+Use this as a local MongoDB URI example. Do not commit real database credentials to GitHub.
