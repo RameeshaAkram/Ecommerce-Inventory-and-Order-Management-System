@@ -1,0 +1,23 @@
+# Java / NetBeans
+**/build/
+**/dist/
+**/nbproject/private/
+**/nbproject/private.properties
+*.class
+*.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local env
+.env
+.env.*
